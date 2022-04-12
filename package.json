@@ -9,12 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.8.8",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^6",
     "next": "12.1.4",
+    "prettier": "^2.6.2",
     "react": "18.0.0",
     "react-dom": "18.0.0"
   },
   "devDependencies": {
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.4"
-  }
+  },
+  "format": "prettier --write \"src/**/*.{js,jsx}\""
 }
