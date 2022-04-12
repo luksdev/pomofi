@@ -1,4 +1,11 @@
-import { Box, Button, Heading, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Heading,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { Fragment } from "react";
 import { useState, useEffect } from "react";
 
@@ -40,7 +47,12 @@ const Counter = () => {
           rounded={"full"}
           w={300}
           h={300}
-          boxShadow="-1px 4px 22px rgba(56, 192, 147, 0.43), inset 1px 1px 50px 9px rgba(0, 0, 0, 0.25);"
+          transition={"all 0.5s ease-in-out"}
+          boxShadow={
+            isRunning
+              ? "-1px 4px 22px rgba(90, 56, 192, 0.43), inset 1px 1px 50px 9px rgba(0, 0, 0, 0.25);"
+              : "-1px 4px 22px rgba(56, 192, 147, 0.43), inset 1px 1px 50px 9px rgba(0, 0, 0, 0.25);"
+          }
           display={"flex"}
           alignItems="center"
           justifyContent="center"
@@ -54,13 +66,50 @@ const Counter = () => {
             {seconds.toString().padStart(2, "0")}
           </Heading>
         </Box>
-        <Button
-          onClick={() => {
-            setIsRunning(true);
-          }}
-        >
-          Start
-        </Button>
+
+        <Box pt={5}>
+          {!isRunning ? (
+            <Button
+              width={200}
+              height={50}
+              background={"brand.primary"}
+              color={"brand.background"}
+              _hover={{ background: "brand.secondary" }}
+              onClick={() => {
+                setIsRunning(true);
+              }}
+            >
+              Start
+            </Button>
+          ) : (
+            <ButtonGroup>
+              <Button
+                width={100}
+                height={50}
+                background={"brand.primary"}
+                color={"brand.background"}
+                _hover={{ background: "brand.secondary" }}
+                onClick={() => {
+                  setIsRunning(true);
+                }}
+              >
+                Resetar
+              </Button>
+              <Button
+                width={100}
+                height={50}
+                background={"brand.primary"}
+                color={"brand.background"}
+                _hover={{ background: "brand.secondary" }}
+                onClick={() => {
+                  setIsRunning(true);
+                }}
+              >
+                Pausar
+              </Button>
+            </ButtonGroup>
+          )}
+        </Box>
       </Stack>
     </Fragment>
   );
