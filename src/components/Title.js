@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Box, Button, ButtonGroup, DefaultIcon, Text } from "@chakra-ui/react";
 import {
   AddIcon,
+  AtSignIcon,
   BellIcon,
   ChatIcon,
   EmailIcon,
@@ -9,6 +10,8 @@ import {
   InfoOutlineIcon,
   LinkIcon,
   SettingsIcon,
+  SunIcon,
+  TimeIcon,
   ViewIcon,
 } from "@chakra-ui/icons";
 
@@ -19,6 +22,7 @@ const Title = () => {
         w={"100%"}
         margin="0 auto"
         display={"flex"}
+        flexDirection={{ base: "column", md: "row" }}
         alignItems="center"
         justifyContent={"space-evenly"}
         pt={5}
@@ -55,7 +59,7 @@ const Title = () => {
             About
           </Button>
           <Button
-            leftIcon={<DefaultIcon />}
+            leftIcon={<AtSignIcon />}
             size={"sm"}
             background={"brand.primary"}
             color={"brand.background"}
