@@ -3,7 +3,7 @@ import Lottie from "react-lottie";
 import { useState } from "react";
 
 const defaultOptions = {
-  loop: true,
+  // loop: true,
   autoplay: true,
   animationData: loading,
   rendererSettings: {
@@ -17,7 +17,7 @@ export const PreLoader = () => {
 
   return (
     <>
-      <Lottie options={defaultOptions} width={300} height={300} />
+      <Lottie options={defaultOptions} width={300} height={100} />
     </>
   );
 };

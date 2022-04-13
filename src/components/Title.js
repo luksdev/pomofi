@@ -24,6 +24,9 @@ import { FaUserAlt } from "react-icons/fa";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 
+// Modal Account
+import { ModalAccount } from "./ModalAccount";
+
 const Title = () => {
   const [user] = useAuthState(auth);
 
@@ -71,15 +74,7 @@ const Title = () => {
           </Button>
           {user ? (
             <>
-              <Button
-                leftIcon={<FaUserAlt />}
-                size={"sm"}
-                background={"brand.primary"}
-                color={"brand.background"}
-                _hover={{ background: "brand.secondary" }}
-              >
-                Account
-              </Button>
+              <ModalAccount dataUser={user} />
             </>
           ) : (
             <>
