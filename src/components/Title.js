@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import { Fragment } from "react";
 import { Box, Button, ButtonGroup, DefaultIcon, Text } from "@chakra-ui/react";
 import {
@@ -16,7 +17,16 @@ import {
 } from "@chakra-ui/icons";
 import Link from "next/link";
 
+// Icons
+import { FaUserAlt } from "react-icons/fa";
+
+// Firebase
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase/firebase";
+
 const Title = () => {
+  const [user] = useAuthState(auth);
+
   return (
     <Fragment>
       <Box
@@ -59,17 +69,33 @@ const Title = () => {
           >
             About
           </Button>
-          <Link href={"/login"}>
-            <Button
-              leftIcon={<AtSignIcon />}
-              size={"sm"}
-              background={"brand.primary"}
-              color={"brand.background"}
-              _hover={{ background: "brand.secondary" }}
-            >
-              Login
-            </Button>
-          </Link>
+          {user ? (
+            <>
+              <Button
+                leftIcon={<FaUserAlt />}
+                size={"sm"}
+                background={"brand.primary"}
+                color={"brand.background"}
+                _hover={{ background: "brand.secondary" }}
+              >
+                Account
+              </Button>
+            </>
+          ) : (
+            <>
+              <Link href={"/login"}>
+                <Button
+                  leftIcon={<FaUserAlt />}
+                  size={"sm"}
+                  background={"brand.primary"}
+                  color={"brand.background"}
+                  _hover={{ background: "brand.secondary" }}
+                >
+                  Login
+                </Button>
+              </Link>
+            </>
+          )}
         </ButtonGroup>
       </Box>
     </Fragment>

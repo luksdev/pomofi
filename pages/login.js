@@ -17,6 +17,18 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import { FiGithub } from "react-icons/fi";
 
+// Firebase
+// import { auth } from "../src/firebase/firebase";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
+const auth = getAuth();
+
+const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
+
+  signInWithPopup(auth, provider);
+};
+
 const Login = () => {
   return (
     <Box
@@ -57,7 +69,12 @@ const Login = () => {
             {/* Buttons */}
 
             <ButtonGroup w="full">
-              <Button w={"full"} variant={"outline"} leftIcon={<FcGoogle />}>
+              <Button
+                w={"full"}
+                variant={"outline"}
+                onClick={signInWithGoogle}
+                leftIcon={<FcGoogle />}
+              >
                 <Center>Google</Center>
               </Button>
 
