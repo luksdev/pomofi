@@ -15,6 +15,14 @@ const Counter = () => {
   const seconds = totalTimeInSeconds % 60;
   const [isRunning, setIsRunning] = useState(false);
 
+  const handleStopTimer = () => {
+    setIsRunning(false);
+  };
+
+  const handleResumeTimer = () => {
+    setIsRunning(true);
+  };
+
   useEffect(() => {
     if (isRunning) {
       // If isRunning is true
@@ -45,13 +53,13 @@ const Counter = () => {
       >
         <Box
           rounded={"full"}
-          w={300}
-          h={300}
+          w={270}
+          h={270}
           transition={"all 0.5s ease-in-out"}
           boxShadow={
             isRunning
-              ? "-1px 4px 22px rgba(90, 56, 192, 0.43), inset 1px 1px 50px 9px rgba(0, 0, 0, 0.25);"
-              : "-1px 4px 22px rgba(56, 192, 147, 0.43), inset 1px 1px 50px 9px rgba(0, 0, 0, 0.25);"
+              ? "-1px 4px 22px rgba( 90, 192, 147, 0.20), inset 1px 1px 50px 9px rgba(0, 0, 0, 0.25);"
+              : "-1px 4px 22px rgba(56, 192, 147, 0.56), inset 1px 1px 50px 9px rgba(0, 0, 0, 0.25);"
           }
           display={"flex"}
           alignItems="center"
@@ -82,32 +90,20 @@ const Counter = () => {
               Start
             </Button>
           ) : (
-            <ButtonGroup>
-              <Button
-                width={100}
-                height={50}
-                background={"brand.primary"}
-                color={"brand.background"}
-                _hover={{ background: "brand.secondary" }}
-                onClick={() => {
-                  setIsRunning(true);
-                }}
-              >
-                Resetar
-              </Button>
-              <Button
-                width={100}
-                height={50}
-                background={"brand.primary"}
-                color={"brand.background"}
-                _hover={{ background: "brand.secondary" }}
-                onClick={() => {
-                  setIsRunning(true);
-                }}
-              >
-                Pausar
-              </Button>
-            </ButtonGroup>
+            <Button
+              width={200}
+              height={50}
+              background={"brand.primary"}
+              color={"brand.background"}
+              _hover={{ background: "brand.secondary" }}
+              onClick={() => {
+                {
+                  isRunning ? handleStopTimer() : handleResumeTimer();
+                }
+              }}
+            >
+              Pause
+            </Button>
           )}
         </Box>
       </Stack>

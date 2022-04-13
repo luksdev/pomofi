@@ -14,6 +14,7 @@ import {
   TimeIcon,
   ViewIcon,
 } from "@chakra-ui/icons";
+import Link from "next/link";
 
 const Title = () => {
   return (
@@ -58,15 +59,17 @@ const Title = () => {
           >
             About
           </Button>
-          <Button
-            leftIcon={<AtSignIcon />}
-            size={"sm"}
-            background={"brand.primary"}
-            color={"brand.background"}
-            _hover={{ background: "brand.secondary" }}
-          >
-            Login
-          </Button>
+          <Link href={"/login"}>
+            <Button
+              leftIcon={<AtSignIcon />}
+              size={"sm"}
+              background={"brand.primary"}
+              color={"brand.background"}
+              _hover={{ background: "brand.secondary" }}
+            >
+              Login
+            </Button>
+          </Link>
         </ButtonGroup>
       </Box>
     </Fragment>
