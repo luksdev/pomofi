@@ -26,7 +26,10 @@ const auth = getAuth();
 const signInWithGoogle = () => {
   const provider = new GoogleAuthProvider();
 
-  signInWithPopup(auth, provider);
+  signInWithPopup(auth, provider).then(() => {
+    console.log("Signed in with Google");
+    location.href("/");
+  });
 };
 
 const Login = () => {
