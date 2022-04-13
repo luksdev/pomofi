@@ -19,9 +19,8 @@ import { FiGithub } from "react-icons/fi";
 
 // Firebase
 // import { auth } from "../src/firebase/firebase";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
-const auth = getAuth();
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../src/firebase/firebase";
 
 const signInWithGoogle = () => {
   const provider = new GoogleAuthProvider();
