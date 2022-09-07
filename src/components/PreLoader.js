@@ -13,9 +13,6 @@ const defaultOptions = {
 };
 
 export const PreLoader = () => {
-  const [loading, setLoading] = useState(true);
-  const [done, setDone] = useState(undefined);
-
   return (
     <>
       <Text

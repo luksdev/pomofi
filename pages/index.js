@@ -53,7 +53,7 @@ export default function Home() {
           }}
         />
 
-        <Stack bgColor={"brand.background"} minH="100vh" maxH={"100%"} bgSize={"contain"} display="flex" justifyContent={"center"}>
+        <Stack bgColor={"brand.background"} minH="100vh" maxH={"100%"} bgSize={"contain"} display="flex" mt={10}>
           <Box display={"flex"} alignItems={"center"} justifyContent="center">
             {playMusic ? (
               <BiPause size={50} style={{ cursor: "pointer" }} onClick={pauseMusic}/>
