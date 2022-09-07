@@ -1,19 +1,10 @@
 /* eslint-disable @next/next/link-passhref */
 import { Fragment } from "react";
-import { Box, Button, ButtonGroup, DefaultIcon, Text } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Text } from "@chakra-ui/react";
 import {
-  AddIcon,
-  AtSignIcon,
   BellIcon,
-  ChatIcon,
-  EmailIcon,
   InfoIcon,
-  InfoOutlineIcon,
-  LinkIcon,
   SettingsIcon,
-  SunIcon,
-  TimeIcon,
-  ViewIcon,
 } from "@chakra-ui/icons";
 import Link from "next/link";
 
@@ -27,7 +18,7 @@ import { auth } from "../firebase/firebase";
 // Modal Account
 import { ModalAccount } from "./ModalAccount";
 
-const Title = () => {
+const Header = () => {
   const [user] = useAuthState(auth);
 
   return (
@@ -97,4 +88,4 @@ const Title = () => {
   );
 };
 
-export default Title;
+export default Header;

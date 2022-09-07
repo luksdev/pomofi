@@ -9,7 +9,7 @@ import {
 import { Fragment } from "react";
 import { useState, useEffect } from "react";
 
-const Counter = () => {
+const Counter = ({ playingMusic }) => {
   const [totalTimeInSeconds, setTotalTimeInSeconds] = useState(25 * 60);
   const minutes = Math.floor(totalTimeInSeconds / 60);
   const seconds = totalTimeInSeconds % 60;
@@ -25,7 +25,6 @@ const Counter = () => {
 
   useEffect(() => {
     if (isRunning) {
-      // If isRunning is true
       console.log(totalTimeInSeconds);
       const interval = setInterval(() => {
         setTotalTimeInSeconds(
@@ -34,7 +33,6 @@ const Counter = () => {
       }, 1000);
     }
     if (totalTimeInSeconds === 0) {
-      // If isRunning is false and totalTimeInSeconds is 0
       setTotalTimeInSeconds(25 * 60);
     }
     return () => {
@@ -45,10 +43,9 @@ const Counter = () => {
   return (
     <Fragment>
       <Stack
-        p={20}
         display={"flex"}
         alignItems="center"
-        justifyContent="flex-start"
+        justifyContent="center"
         h={"100%"}
       >
         <Box
@@ -85,6 +82,7 @@ const Counter = () => {
               _hover={{ background: "brand.secondary" }}
               onClick={() => {
                 setIsRunning(true);
+                playingMusic(true);
               }}
             >
               Start
